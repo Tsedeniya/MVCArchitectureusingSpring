@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Book</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Book Store</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">All Book</a></li>
+      <li><a href="#">New Book</a></li>
+     
+    </ul>
+  </div>
+</nav>
+  
+<div class="container">
+                
+ <form action="#" th:action="@{/update/{id}(id=${book.id})}" th:object="${book}" method="post">
+ <div class="form-group">
+    <label for="name">Book Name</label>
+    <input type="text" th:field="*{bookName}" id="name" placeholder="Name" class="form-control">
+    <span th:if="${#fields.hasErrors('bookName')}" th:errors="*{bookName}"></span>
+    </div>
+    <div class="form-group">
+    <label for="email">Author</label>
+    <input type="text" th:field="*{author}" id="email" placeholder="Author" class="form-control">
+    <span th:if="${#fields.hasErrors('authoe')}" th:errors="*{author}"></span>
+    <div class="form-group">
+    <input type="submit" value="Update Book">   
+</form>
+    
+</div>
+
+</body>
+</html>
